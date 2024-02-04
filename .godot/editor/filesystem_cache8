@@ -1,7 +1,7 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1707084958
+::res://::1707086980
 icon.svg::CompressedTexture2D::5458767210299453032::1707077930::1707078009::1::::<><>::
-test.txt::TextFile::-1::1707077930::0::1::::<><>::
+README.md::TextFile::-1::1707086269::0::1::::<><>::
 ::res://addons/::1707077931
 ::res://addons/godot-git-plugin/::1707077932
 git_plugin.gdextension::GDExtension::-1::1707077931::0::1::::<><>::
@@ -9,7 +9,7 @@ plugin.cfg::TextFile::-1::1707077931::0::1::::<><>::
 THIRDPARTY.md::TextFile::-1::1707077931::0::1::::<><>::
 ::res://addons/godot-git-plugin/linux/::1707077931
 ::res://addons/godot-git-plugin/macos/::1707077931
-::res://addons/godot-git-plugin/win64/::1707084951
+::res://addons/godot-git-plugin/win64/::1707086975
 ::res://Assets/::1707077930
 ::res://Assets/Textures/::1707078009
 small_moon_hex_grid.png::CompressedTexture2D::6375783902965369275::1707077930::1707078009::1::::<><>::
