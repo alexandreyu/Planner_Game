@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dn2tmew7fwnec"]
+
+[ext_resource type="Script" path="res://Scenes/Terrain Generation/noise_generator.gd" id="1_8cnvj"]
+[ext_resource type="Script" path="res://Scenes/Terrain Generation/terrain_generator.gd" id="1_m6v1n"]
+[ext_resource type="Script" path="res://Scenes/Terrain Generation/tile_mapper.gd" id="3_jrcsd"]
+
+[node name="TerrainGenerator" type="Node"]
+script = ExtResource("1_m6v1n")
+
+[node name="NoiseGenerator" type="Node" parent="."]
+script = ExtResource("1_8cnvj")
+
+[node name="TileMapper" type="Node" parent="."]
+script = ExtResource("3_jrcsd")
+
+[connection signal="start_terrain_generation" from="." to="." method="_on_start_terrain_generation"]
+[connection signal="start_terrain_generation" from="." to="NoiseGenerator" method="_on_terrain_generator_start_terrain_generation"]
+[connection signal="noise_ready" from="NoiseGenerator" to="TileMapper" method="_on_noise_generator_noise_ready"]
+[connection signal="signal_sudoku" from="TileMapper" to="." method="_on_tile_mapper_signal_sudoku"]

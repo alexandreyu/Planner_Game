@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c6i65pk81jaul"]
+
+[node name="HexManager" type="Node"]
+
+[node name="Terrain" type="Node" parent="."]
+
+[node name="Buildings" type="Node" parent="."]
+
+[node name="Units" type="Node" parent="."]

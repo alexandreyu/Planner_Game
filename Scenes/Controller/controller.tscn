@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://da6eod8vqmgf"]
+
+[ext_resource type="Script" path="res://Scenes/Controller/controller.gd" id="1_ilrbo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x6ef7"]
+
+[node name="Controller" type="CharacterBody2D"]
+script = ExtResource("1_ilrbo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x6ef7")
+disabled = true
+
+[node name="Camera2D" type="Camera2D" parent="."]

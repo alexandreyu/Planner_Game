@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn2tmew7fwnec"]
+
+[ext_resource type="Script" path="res://Scenes/Terrain Generation 2/noise_generator.gd" id="1_8cnvj"]
+[ext_resource type="Script" path="res://Scenes/Terrain Generation 2/terrain_generator.gd" id="1_m6v1n"]
+[ext_resource type="Script" path="res://Scenes/Terrain Generation 2/tile_dict.gd" id="3_7ck6f"]
+[ext_resource type="Script" path="res://Scenes/Terrain Generation 2/tile_mapper.gd" id="3_jrcsd"]
+
+[node name="TerrainGenerator" type="Node"]
+script = ExtResource("1_m6v1n")
+
+[node name="NoiseGenerator" type="Node" parent="."]
+script = ExtResource("1_8cnvj")
+
+[node name="TileDict" type="Node" parent="."]
+script = ExtResource("3_7ck6f")
+
+[node name="TileMapper" type="Node" parent="."]
+script = ExtResource("3_jrcsd")
+
+[node name="NoiseTexture" type="Sprite2D" parent="."]
+
+[connection signal="noise_ready" from="NoiseGenerator" to="TileMapper" method="_on_noise_generator_noise_ready"]

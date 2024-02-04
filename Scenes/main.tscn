@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://csnslybbe8mh3"]
+
+[ext_resource type="Texture2D" uid="uid://cw3qh2fc6koyt" path="res://Assets/Textures/small_moon_hex_grid.png" id="1_a8uhb"]
+[ext_resource type="PackedScene" uid="uid://da6eod8vqmgf" path="res://Scenes/Controller/controller.tscn" id="2_7mgws"]
+[ext_resource type="PackedScene" uid="uid://c6i65pk81jaul" path="res://Scenes/Map Management/hex_manager.tscn" id="3_h8sw6"]
+[ext_resource type="Script" path="res://Scenes/Saver Loader/saver_loader.gd" id="4_k0p6x"]
+[ext_resource type="PackedScene" uid="uid://b8i6wchrstpg7" path="res://Scenes/Map Management/hex.tscn" id="4_owg5u"]
+[ext_resource type="PackedScene" uid="uid://dn2tmew7fwnec" path="res://Scenes/Terrain Generation/terrain_generator.tscn" id="4_t3wrl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugcyl"]
+texture = ExtResource("1_a8uhb")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_3hyxp"]
+tile_shape = 3
+tile_layout = 1
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_ugcyl")
+
+[node name="Main" type="Node2D"]
+
+[node name="WorldRoot" type="Node2D" parent="."]
+
+[node name="Controller" parent="WorldRoot" instance=ExtResource("2_7mgws")]
+
+[node name="Map" type="Node2D" parent="WorldRoot"]
+
+[node name="TileMap" type="TileMap" parent="WorldRoot/Map"]
+tile_set = SubResource("TileSet_3hyxp")
+format = 2
+layer_0/name = "Terrain"
+
+[node name="HexManager" parent="WorldRoot/Map" instance=ExtResource("3_h8sw6")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Utilities" type="Node" parent="."]
+
+[node name="TerrainGenerator" parent="Utilities" node_paths=PackedStringArray("tile_map") instance=ExtResource("4_t3wrl")]
+tile_map = NodePath("../../WorldRoot/Map/TileMap")
+
+[node name="SaverLoader" type="Node" parent="Utilities"]
+script = ExtResource("4_k0p6x")
+
+[node name="Hex" parent="." instance=ExtResource("4_owg5u")]
