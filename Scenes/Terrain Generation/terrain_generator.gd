@@ -3,8 +3,8 @@ extends Node
 @export var tile_map : TileMap
 
 @export var generation_seed : int
-@export var width = 32
-@export var height = 32
+@export var width = 64
+@export var height = 64
 
 var size = Vector2i(width, height)
 

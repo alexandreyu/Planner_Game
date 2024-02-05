@@ -19,8 +19,6 @@ var is_dragging = false
 # References
 @onready var camera_2d = $Camera2D
 
-func _ready():
-	pass
 var mouse_start_pos
 var screen_start_position
 

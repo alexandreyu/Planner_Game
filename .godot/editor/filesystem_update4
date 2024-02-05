@@ -1,2 +1,8 @@
 res://Scenes/Map Management/hex_manager.tscn
 res://Scenes/Map Management/hex.gd
+res://Scenes/main.tscn
+res://Scenes/Terrain Generation/terrain_generator.tscn
+res://Scenes/Controller/controller.tscn
+res://Scenes/Controller/controller.gd
+res://Scenes/Terrain Generation/terrain_generator.gd
+res://Scenes/Terrain Generation/noise_generator.gd
