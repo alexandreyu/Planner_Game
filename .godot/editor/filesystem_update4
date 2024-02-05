@@ -1,2 +1,2 @@
-res://Scenes/main.tscn
-res://Scenes/Saver Loader/saver_loader.gd
+res://Scenes/Map Management/hex_manager.tscn
+res://Scenes/Map Management/hex.gd
