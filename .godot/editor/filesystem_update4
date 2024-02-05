@@ -8,3 +8,6 @@ res://Scenes/Map Management/hex.gd
 res://Scenes/Map Management/Map Components/building.gd
 res://Scenes/Map Management/Map Components/unit.gd
 res://Scenes/Map Management/Map Components/Units/unit.gd
+res://Scenes/Map Management/hex_manager.gd
+res://Scenes/Terrain Generation/terrain_generator.tscn
+res://Scenes/Terrain Generation/tile_mapper.gd

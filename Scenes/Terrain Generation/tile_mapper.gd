@@ -15,7 +15,7 @@ signal signal_sudoku
 func _on_noise_generator_noise_ready():
 	var data = noise_generator.data
 	var coords = create_vector2_coordinates(terrain_generator.size)
-	
+	print(coords[1])
 	var tile_list = noise_to_tile(data, div)
 	
 	var source_id = 0
