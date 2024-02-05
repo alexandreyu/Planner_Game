@@ -41,6 +41,7 @@ layer_0/name = "Terrain"
 
 [node name="TerrainGenerator" parent="Utilities" node_paths=PackedStringArray("tile_map") instance=ExtResource("4_t3wrl")]
 tile_map = NodePath("../../WorldRoot/Map/TileMap")
+generation_seed = 6969
 
 [node name="SaverLoader" type="Node" parent="Utilities"]
 script = ExtResource("4_k0p6x")

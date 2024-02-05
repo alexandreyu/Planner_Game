@@ -24,7 +24,6 @@ var screen_start_position
 
 
 func _input(event):
-	# print(event)
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if event.is_pressed():
 			mouse_start_pos = event.position

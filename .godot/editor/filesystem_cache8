@@ -1,5 +1,5 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1707124099
+::res://::1707135336
 icon.svg::CompressedTexture2D::5458767210299453032::1707077930::1707078009::1::::<><>::
 README.md::TextFile::-1::1707086269::0::1::::<><>::
 ::res://addons/::1707077931
@@ -9,26 +9,26 @@ plugin.cfg::TextFile::-1::1707077931::0::1::::<><>::
 THIRDPARTY.md::TextFile::-1::1707077931::0::1::::<><>::
 ::res://addons/godot-git-plugin/linux/::1707077931
 ::res://addons/godot-git-plugin/macos/::1707077931
-::res://addons/godot-git-plugin/win64/::1707124094
+::res://addons/godot-git-plugin/win64/::1707135332
 ::res://Assets/::1707077930
 ::res://Assets/Textures/::1707078009
 small_moon_hex_grid.png::CompressedTexture2D::6375783902965369275::1707077930::1707078009::1::::<><>::
 square_tile_set.png::CompressedTexture2D::9166522582045886847::1707077930::1707078009::1::::<><>::
 ::res://Saves/::1707077930
-::res://Scenes/::1707124028
-main.tscn::PackedScene::6064191275433612130::1707123988::0::1::::<><>::uid://cw3qh2fc6koyt::::res://Assets/Textures/small_moon_hex_grid.png<>uid://da6eod8vqmgf::::res://Scenes/Controller/controller.tscn<>uid://c6i65pk81jaul::::res://Scenes/Map Management/hex_manager.tscn<>res://Scenes/Saver Loader/saver_loader.gd<>uid://b8i6wchrstpg7::::res://Scenes/Map Management/hex.tscn<>uid://dn2tmew7fwnec::::res://Scenes/Terrain Generation/terrain_generator.tscn
-::res://Scenes/Controller/::1707123988
-controller.gd::GDScript::-1::1707077930::0::1::::<>CharacterBody2D<>::
-controller.tscn::PackedScene::212456642354867377::1707123988::0::1::::<><>::res://Scenes/Controller/controller.gd
-::res://Scenes/Map Management/::1707124024
-hex.gd::GDScript::-1::1707077930::0::1::::Hex<>Node<>::
-hex.tscn::PackedScene::4721089176679867840::1707077930::0::1::::<><>::res://Scenes/Map Management/hex.gd
-hex_manager.tscn::PackedScene::6967147147623355963::1707124024::0::1::::<><>::
+::res://Scenes/::1707134820
+main.tscn::PackedScene::6064191275433612130::1707134820::0::1::::<><>::uid://cw3qh2fc6koyt::::res://Assets/Textures/small_moon_hex_grid.png<>uid://da6eod8vqmgf::::res://Scenes/Controller/controller.tscn<>uid://c6i65pk81jaul::::res://Scenes/Map Management/hex_manager.tscn<>res://Scenes/Saver Loader/saver_loader.gd<>uid://b8i6wchrstpg7::::res://Scenes/Map Management/hex.tscn<>uid://dn2tmew7fwnec::::res://Scenes/Terrain Generation/terrain_generator.tscn
+::res://Scenes/Controller/::1707134809
+controller.gd::GDScript::-1::1707134458::0::1::::<>CharacterBody2D<>::
+controller.tscn::PackedScene::212456642354867377::1707134809::0::1::::<><>::res://Scenes/Controller/controller.gd
+::res://Scenes/Map Management/::1707134809
+hex.gd::GDScript::-1::1707124369::0::1::::Hex<>Node<>::
+hex.tscn::PackedScene::4721089176679867840::1707134809::0::1::::<><>::res://Scenes/Map Management/hex.gd
+hex_manager.tscn::PackedScene::6967147147623355963::1707134809::0::1::::<><>::
 ::res://Scenes/Saver Loader/::1707087260
 saver_loader.gd::GDScript::-1::1707087260::0::1::::SaverLoader<>Node<>::
-::res://Scenes/Terrain Generation/::1707124038
-noise_generator.gd::GDScript::-1::1707077930::0::1::::<>Node<>::
-terrain_generator.gd::GDScript::-1::1707077931::0::1::::<>Node<>::
-terrain_generator.tscn::PackedScene::8128630515663352510::1707123988::0::1::::<><>::res://Scenes/Terrain Generation/noise_generator.gd<>res://Scenes/Terrain Generation/terrain_generator.gd<>res://Scenes/Terrain Generation/tile_mapper.gd
+::res://Scenes/Terrain Generation/::1707134663
+noise_generator.gd::GDScript::-1::1707134240::0::1::::<>Node<>::
+terrain_generator.gd::GDScript::-1::1707134652::0::1::::<>Node<>::
+terrain_generator.tscn::PackedScene::8128630515663352510::1707134663::0::1::::<><>::res://Scenes/Terrain Generation/noise_generator.gd<>res://Scenes/Terrain Generation/terrain_generator.gd<>res://Scenes/Terrain Generation/tile_mapper.gd
 tile_dict.gd::GDScript::-1::1707077931::0::1::::<>Node<>::
 tile_mapper.gd::GDScript::-1::1707077931::0::1::::<>Node<>::
