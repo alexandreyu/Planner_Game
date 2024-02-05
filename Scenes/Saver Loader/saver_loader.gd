@@ -3,7 +3,7 @@ extends Node
 var saving = false
 var loading = false
 
-@onready var tile_map = $"../../WorldRoot/TileMap"
+@onready var tile_map = $"../../WorldRoot/Map/TileMap"
 
 func _physics_process(delta):
 	if Input.is_action_pressed("Quick Save") and not saving and not loading:
@@ -25,15 +25,6 @@ func save_game():
 	print("Saved Game")
 func load_game():
 	var file = FileAccess.open("res://Saves/save_game.data", FileAccess.READ)
-	# 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	file.close()
 	print("Loaded Game")
 
