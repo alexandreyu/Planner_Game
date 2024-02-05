@@ -2,6 +2,7 @@ extends Node
 var texture = NoiseTexture2D.new()
 
 @onready var terrain_generator = $".."
+@onready var sprite_2d = $"../Sprite2D"
 
 signal noise_ready
 
@@ -26,5 +27,6 @@ func _on_terrain_generator_start_terrain_generation():
 	texture.noise = noise
 	await texture.changed
 	var image = texture.get_image()
+	sprite_2d.texture = texture
 	data = image_to_grayness(image)
 	noise_ready.emit()

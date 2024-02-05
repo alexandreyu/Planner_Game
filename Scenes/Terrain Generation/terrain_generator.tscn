@@ -13,6 +13,10 @@ script = ExtResource("1_8cnvj")
 [node name="TileMapper" type="Node" parent="."]
 script = ExtResource("3_jrcsd")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2048, 0)
+scale = Vector2(16, 16)
+
 [connection signal="start_terrain_generation" from="." to="." method="_on_start_terrain_generation"]
 [connection signal="start_terrain_generation" from="." to="NoiseGenerator" method="_on_terrain_generator_start_terrain_generation"]
 [connection signal="noise_ready" from="NoiseGenerator" to="TileMapper" method="_on_noise_generator_noise_ready"]
