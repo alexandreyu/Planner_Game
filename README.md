@@ -3,3 +3,4 @@
 
 Giga dépôts de ressources comme moyen de concentrer le fight
 Redemander a tron si nécessaire
+Gestion de ressources envoyées de puis la terre
