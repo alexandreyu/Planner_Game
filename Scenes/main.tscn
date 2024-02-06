@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://csnslybbe8mh3"]
+[gd_scene load_steps=7 format=3 uid="uid://csnslybbe8mh3"]
 
 [ext_resource type="Texture2D" uid="uid://cw3qh2fc6koyt" path="res://Assets/Textures/small_moon_hex_grid.png" id="1_a8uhb"]
 [ext_resource type="PackedScene" uid="uid://da6eod8vqmgf" path="res://Scenes/Controller/controller.tscn" id="2_7mgws"]
-[ext_resource type="PackedScene" uid="uid://c6i65pk81jaul" path="res://Scenes/Map Management/hex_manager.tscn" id="3_h8sw6"]
+[ext_resource type="PackedScene" uid="uid://c6i65pk81jaul" path="res://Scenes/MapManagement/hex_manager.tscn" id="3_h8sw6"]
 [ext_resource type="Script" path="res://Scenes/Saver Loader/saver_loader.gd" id="4_k0p6x"]
-[ext_resource type="PackedScene" uid="uid://b8i6wchrstpg7" path="res://Scenes/Map Management/hex.tscn" id="4_owg5u"]
-[ext_resource type="PackedScene" uid="uid://dn2tmew7fwnec" path="res://Scenes/Terrain Generation/terrain_generator.tscn" id="4_t3wrl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugcyl"]
 texture = ExtResource("1_a8uhb")
@@ -38,11 +36,5 @@ layer_0/name = "Terrain"
 
 [node name="Utilities" type="Node" parent="."]
 
-[node name="TerrainGenerator" parent="Utilities" node_paths=PackedStringArray("tile_map") instance=ExtResource("4_t3wrl")]
-tile_map = NodePath("../../WorldRoot/Map/TileMap")
-generation_seed = 6969
-
 [node name="SaverLoader" type="Node" parent="Utilities"]
 script = ExtResource("4_k0p6x")
-
-[node name="Hex" parent="." instance=ExtResource("4_owg5u")]

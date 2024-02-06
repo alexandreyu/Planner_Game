@@ -15,7 +15,7 @@ func image_to_grayness(image):
 			grayness.append(image.get_pixel(i, j)[0])
 	return grayness
 
-func _on_terrain_generator_start_terrain_generation():
+func generate():
 	texture.width = terrain_generator.size.x
 	texture.height = terrain_generator.size.y
 	
