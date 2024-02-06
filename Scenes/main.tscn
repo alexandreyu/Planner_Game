@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://csnslybbe8mh3"]
+[gd_scene load_steps=11 format=3 uid="uid://csnslybbe8mh3"]
 
 [ext_resource type="Texture2D" uid="uid://cw3qh2fc6koyt" path="res://Assets/Textures/small_moon_hex_grid.png" id="1_a8uhb"]
 [ext_resource type="PackedScene" uid="uid://da6eod8vqmgf" path="res://Scenes/Controller/controller.tscn" id="2_7mgws"]
-[ext_resource type="PackedScene" uid="uid://c6i65pk81jaul" path="res://Scenes/MapManagement/hex_manager.tscn" id="3_h8sw6"]
-[ext_resource type="Script" path="res://Scenes/Saver Loader/saver_loader.gd" id="4_k0p6x"]
+[ext_resource type="Script" path="res://Scenes/MapManagement/hex_manager.gd" id="2_ayagu"]
+[ext_resource type="Script" path="res://Scenes/TerrainGeneration/terrain_generator.gd" id="2_bv1mf"]
+[ext_resource type="Script" path="res://Scenes/TerrainGeneration/noise_generator.gd" id="3_13gjd"]
+[ext_resource type="Script" path="res://Scenes/TerrainGeneration/tile_mapper.gd" id="4_ct8mt"]
+[ext_resource type="Script" path="res://Scenes/SaverLoader/saver_loader.gd" id="4_k0p6x"]
+[ext_resource type="Texture2D" uid="uid://cj1jdl1hgyoqq" path="res://icon.svg" id="7_lcxgp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugcyl"]
 texture = ExtResource("1_a8uhb")
@@ -25,12 +29,28 @@ sources/0 = SubResource("TileSetAtlasSource_ugcyl")
 
 [node name="Map" type="Node2D" parent="WorldRoot"]
 
-[node name="TileMap" type="TileMap" parent="WorldRoot/Map"]
+[node name="HexManager" type="Node" parent="WorldRoot/Map"]
+script = ExtResource("2_ayagu")
+
+[node name="TileMap" type="TileMap" parent="WorldRoot/Map/HexManager"]
 tile_set = SubResource("TileSet_3hyxp")
 format = 2
 layer_0/name = "Terrain"
+layer_0/tile_data = PackedInt32Array(0, 0, 0)
 
-[node name="HexManager" parent="WorldRoot/Map" instance=ExtResource("3_h8sw6")]
+[node name="TerrainGenerator" type="Node" parent="WorldRoot/Map/HexManager"]
+script = ExtResource("2_bv1mf")
+
+[node name="NoiseGenerator" type="Node" parent="WorldRoot/Map/HexManager/TerrainGenerator"]
+script = ExtResource("3_13gjd")
+
+[node name="TileMapper" type="Node" parent="WorldRoot/Map/HexManager/TerrainGenerator"]
+script = ExtResource("4_ct8mt")
+
+[node name="Sprite2D" type="Sprite2D" parent="WorldRoot/Map/HexManager/TerrainGenerator"]
+
+[node name="Sprite2D" type="Sprite2D" parent="WorldRoot"]
+texture = ExtResource("7_lcxgp")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -38,3 +58,6 @@ layer_0/name = "Terrain"
 
 [node name="SaverLoader" type="Node" parent="Utilities"]
 script = ExtResource("4_k0p6x")
+
+[connection signal="noise_ready" from="WorldRoot/Map/HexManager/TerrainGenerator/NoiseGenerator" to="WorldRoot/Map/HexManager/TerrainGenerator/TileMapper" method="_on_noise_generator_noise_ready"]
+[connection signal="signal_sudoku" from="WorldRoot/Map/HexManager/TerrainGenerator/TileMapper" to="WorldRoot/Map/HexManager/TerrainGenerator" method="_on_tile_mapper_signal_sudoku"]
