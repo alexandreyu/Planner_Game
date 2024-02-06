@@ -21,7 +21,7 @@ func generate():
 	
 	var noise = FastNoiseLite.new()
 	noise.noise_type = 0
-	noise.frequency = 0.01
+	noise.frequency = 0.03
 	noise.set_seed(terrain_generator.generation_seed)
 	
 	texture.noise = noise

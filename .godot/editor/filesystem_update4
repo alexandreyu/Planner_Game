@@ -1,12 +1,6 @@
-res://Scenes/TerrainGeneration/terrain_generator.tscn
-res://Scenes/MapManagement/hex_manager.tscn
-res://Scenes/TerrainGeneration/terrain_generator.gd
-res://Scenes/MapManagement/hex.tscn
 res://Scenes/main.tscn
-res://Scenes/TerrainGenerationOld/terrain_generator.gd
-res://Scenes/TerrainGenerationOld/noise_generator.gd
-res://Scenes/TerrainGenerationOld/tile_mapper.gd
-res://Scenes/MapManagement/hex_manager.gd
 res://Scenes/TerrainGeneration/noise_generator.gd
 res://Scenes/TerrainGeneration/tile_mapper.gd
-res://Scenes/SaverLoader/saver_loader.gd
+res://Scenes/MapManagement/hex_manager.gd
+res://Scenes/MapManagement/tile_dict.gd
+res://Scenes/MapManagement/MapComponents/hex.gd
