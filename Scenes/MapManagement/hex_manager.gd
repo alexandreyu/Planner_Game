@@ -7,5 +7,4 @@ extends Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	terrain_generator.initialize_generator(tile_map, generation_seed, size)
-	print("Init generator")
 	terrain_generator.generate_terrain()

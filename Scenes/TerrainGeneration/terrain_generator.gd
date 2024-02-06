@@ -18,6 +18,5 @@ func generate_terrain():
 
 
 func _on_tile_mapper_signal_sudoku():
-	pass
-	"""print("Generation successful, destroying generator")
-	queue_free()"""
+	print("Generation successful, destroying generator")
+	queue_free()

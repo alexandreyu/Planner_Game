@@ -24,9 +24,7 @@ func _on_noise_generator_noise_ready():
 		atlas_coord.x = tile_list[int(i)]
 		
 		tile_map.set_cell(terrain_layer, coords[i], source_id, atlas_coord)
-	
 	sudoku()
-	
 
 
 func create_vector2_coordinates(size):

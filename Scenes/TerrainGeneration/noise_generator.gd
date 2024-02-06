@@ -16,7 +16,6 @@ func image_to_value(image):
 	return value
 
 func generate():
-	print("Generating Noise")
 	texture.width = terrain_generator.size.x
 	texture.height = terrain_generator.size.y
 	
