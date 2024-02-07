@@ -52,14 +52,16 @@ script = ExtResource("4_ct8mt")
 [node name="Sprite2D" type="Sprite2D" parent="WorldRoot/Map/HexManager/TerrainGenerator"]
 visible = false
 
-[node name="Unit" type="Node2D" parent="WorldRoot/Map"]
+[node name="UnitManager" type="Node" parent="WorldRoot/Map"]
+
+[node name="Unit" type="Node2D" parent="WorldRoot/Map/UnitManager"]
 z_index = 1
 script = ExtResource("7_dubxg")
 
-[node name="UnitTexture" type="Sprite2D" parent="WorldRoot/Map/Unit"]
+[node name="UnitTexture" type="Sprite2D" parent="WorldRoot/Map/UnitManager/Unit"]
 texture = ExtResource("7_ibdh6")
 
-[node name="Label" type="Label" parent="WorldRoot/Map/Unit"]
+[node name="Label" type="Label" parent="WorldRoot/Map/UnitManager/Unit"]
 offset_left = -20.0
 offset_top = 8.0
 offset_right = 20.0

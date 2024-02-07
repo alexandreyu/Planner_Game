@@ -1,4 +1,5 @@
 extends Node2D
+var coords : Vector2i
 var health : int
 var type : int
 var spec : int
