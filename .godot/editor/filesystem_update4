@@ -1,6 +1,4 @@
 res://Scenes/main.tscn
-res://Scenes/TerrainGeneration/noise_generator.gd
-res://Scenes/TerrainGeneration/tile_mapper.gd
-res://Scenes/MapManagement/hex_manager.gd
-res://Scenes/MapManagement/tile_dict.gd
 res://Scenes/MapManagement/MapComponents/hex.gd
+res://Scenes/MapManagement/hex_manager.gd
+res://Scenes/MapManagement/hex_dict.gd

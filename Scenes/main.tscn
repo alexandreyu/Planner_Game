@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://csnslybbe8mh3"]
+[gd_scene load_steps=11 format=3 uid="uid://csnslybbe8mh3"]
 
 [ext_resource type="Texture2D" uid="uid://cw3qh2fc6koyt" path="res://Assets/Textures/small_moon_hex_grid.png" id="1_a8uhb"]
 [ext_resource type="PackedScene" uid="uid://da6eod8vqmgf" path="res://Scenes/Controller/controller.tscn" id="2_7mgws"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://Scenes/TerrainGeneration/terrain_generator.gd" id="2_bv1mf"]
 [ext_resource type="Script" path="res://Scenes/TerrainGeneration/noise_generator.gd" id="3_13gjd"]
 [ext_resource type="Script" path="res://Scenes/TerrainGeneration/tile_mapper.gd" id="4_ct8mt"]
-[ext_resource type="Script" path="res://Scenes/MapManagement/hex_dict.gd" id="4_jky0g"]
 [ext_resource type="Script" path="res://Scenes/SaverLoader/saver_loader.gd" id="4_k0p6x"]
 [ext_resource type="Texture2D" uid="uid://cj1jdl1hgyoqq" path="res://icon.svg" id="7_lcxgp"]
 
@@ -38,9 +37,6 @@ tile_set = SubResource("TileSet_3hyxp")
 format = 2
 layer_0/name = "Terrain"
 layer_0/tile_data = PackedInt32Array(0, 0, 0)
-
-[node name="HexDict" type="Node" parent="WorldRoot/Map/HexManager"]
-script = ExtResource("4_jky0g")
 
 [node name="TerrainGenerator" type="Node" parent="WorldRoot/Map/HexManager"]
 script = ExtResource("2_bv1mf")
