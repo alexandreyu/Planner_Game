@@ -2,3 +2,6 @@ res://Scenes/main.tscn
 res://Scenes/MapManagement/MapComponents/hex.gd
 res://Scenes/MapManagement/hex_manager.gd
 res://Scenes/MapManagement/hex_dict.gd
+res://Scenes/MapManagement/MapComponents/Units/unit.gd
+res://Scenes/Controller/controller.tscn
+res://Scenes/SaverLoader/saver_loader.gd

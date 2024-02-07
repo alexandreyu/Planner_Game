@@ -2,8 +2,8 @@ class_name SaverLoader
 extends Node
 var saving = false
 var loading = false
+@onready var tile_map = $"../../WorldRoot/Map/HexManager/TileMap"
 
-@onready var tile_map = $"../../WorldRoot/Map/TileMap"
 
 func _physics_process(delta):
 	if Input.is_action_pressed("Quick Save") and not saving and not loading:
