@@ -1,2 +1,5 @@
 res://Scenes/main.tscn
 res://Scenes/MapManagement/MapComponents/Units/unit.gd
+res://Scenes/MapManagement/hex_manager.gd
+res://Scripts/MapManagement/MapComponents/Units/unit.gd
+res://Scripts/MapManagement/hex_manager.gd

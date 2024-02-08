@@ -2,12 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://cw3qh2fc6koyt" path="res://Assets/Textures/Map/small_moon_hex_grid.png" id="1_a8uhb"]
 [ext_resource type="PackedScene" uid="uid://da6eod8vqmgf" path="res://Scenes/Controller/controller.tscn" id="2_7mgws"]
-[ext_resource type="Script" path="res://Scenes/MapManagement/hex_manager.gd" id="2_ayagu"]
-[ext_resource type="Script" path="res://Scenes/TerrainGeneration/terrain_generator.gd" id="2_bv1mf"]
-[ext_resource type="Script" path="res://Scenes/TerrainGeneration/noise_generator.gd" id="3_13gjd"]
-[ext_resource type="Script" path="res://Scenes/TerrainGeneration/tile_mapper.gd" id="4_ct8mt"]
-[ext_resource type="Script" path="res://Scenes/SaverLoader/saver_loader.gd" id="4_k0p6x"]
-[ext_resource type="Script" path="res://Scenes/MapManagement/MapComponents/Units/unit.gd" id="7_dubxg"]
+[ext_resource type="Script" path="res://Scripts/MapManagement/hex_manager.gd" id="2_ayagu"]
+[ext_resource type="Script" path="res://Scripts/TerrainGeneration/terrain_generator.gd" id="2_bv1mf"]
+[ext_resource type="Script" path="res://Scripts/TerrainGeneration/noise_generator.gd" id="3_13gjd"]
+[ext_resource type="Script" path="res://Scripts/TerrainGeneration/tile_mapper.gd" id="4_ct8mt"]
+[ext_resource type="Script" path="res://Scripts/SaverLoader/saver_loader.gd" id="4_k0p6x"]
+[ext_resource type="Script" path="res://Scripts/MapManagement/MapComponents/Units/unit.gd" id="7_dubxg"]
 [ext_resource type="Texture2D" uid="uid://7sr3ty5dtj1p" path="res://Assets/Textures/Units/explorer.png" id="7_ibdh6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugcyl"]

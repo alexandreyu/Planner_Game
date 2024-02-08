@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://bic8urmplgoh"]
 
-[ext_resource type="Script" path="res://Scenes/MapManagement/MapComponents/hex.gd" id="1_8ut5s"]
+[ext_resource type="Script" path="res://Scripts/MapManagement/MapComponents/hex.gd" id="1_8ut5s"]
+
 
 [node name="Hex" type="Node"]
 script = ExtResource("1_8ut5s")
