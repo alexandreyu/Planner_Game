@@ -1,14 +1,21 @@
-[gd_scene load_steps=12 format=3 uid="uid://csnslybbe8mh3"]
+[gd_scene load_steps=18 format=3 uid="uid://csnslybbe8mh3"]
 
 [ext_resource type="Texture2D" uid="uid://cw3qh2fc6koyt" path="res://Assets/Textures/Map/small_moon_hex_grid.png" id="1_a8uhb"]
+[ext_resource type="Script" path="res://Scripts/Cursor/cursor.gd" id="2_7jge4"]
 [ext_resource type="PackedScene" uid="uid://da6eod8vqmgf" path="res://Scenes/Controller/controller.tscn" id="2_7mgws"]
+[ext_resource type="Script" path="res://Scripts/MapManagement/map.gd" id="2_70uoi"]
 [ext_resource type="Script" path="res://Scripts/MapManagement/hex_manager.gd" id="2_ayagu"]
 [ext_resource type="Script" path="res://Scripts/TerrainGeneration/terrain_generator.gd" id="2_bv1mf"]
 [ext_resource type="Script" path="res://Scripts/TerrainGeneration/noise_generator.gd" id="3_13gjd"]
+[ext_resource type="Texture2D" uid="uid://cj1jdl1hgyoqq" path="res://icon.svg" id="3_g3hla"]
 [ext_resource type="Script" path="res://Scripts/TerrainGeneration/tile_mapper.gd" id="4_ct8mt"]
 [ext_resource type="Script" path="res://Scripts/SaverLoader/saver_loader.gd" id="4_k0p6x"]
 [ext_resource type="Script" path="res://Scripts/MapManagement/MapComponents/Units/unit.gd" id="7_dubxg"]
 [ext_resource type="Texture2D" uid="uid://7sr3ty5dtj1p" path="res://Assets/Textures/Units/explorer.png" id="7_ibdh6"]
+[ext_resource type="Script" path="res://Scripts/MapManagement/unit_manager.gd" id="8_mc1s3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p5sem"]
+size = Vector2(16, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ugcyl"]
 texture = ExtResource("1_a8uhb")
@@ -22,13 +29,32 @@ tile_shape = 3
 tile_size = Vector2i(128, 128)
 sources/0 = SubResource("TileSetAtlasSource_ugcyl")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6ds8"]
+size = Vector2(32, 32)
+
 [node name="Main" type="Node2D"]
 
 [node name="WorldRoot" type="Node2D" parent="."]
 
 [node name="Controller" parent="WorldRoot" instance=ExtResource("2_7mgws")]
 
+[node name="Cursor" type="Node2D" parent="WorldRoot"]
+visible = false
+script = ExtResource("2_7jge4")
+
+[node name="Sprite2D" type="Sprite2D" parent="WorldRoot/Cursor"]
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("3_g3hla")
+
+[node name="ObjectSelector" type="Node2D" parent="WorldRoot/Cursor"]
+
+[node name="Area2D" type="Area2D" parent="WorldRoot/Cursor"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldRoot/Cursor/Area2D"]
+shape = SubResource("RectangleShape2D_p5sem")
+
 [node name="Map" type="Node2D" parent="WorldRoot"]
+script = ExtResource("2_70uoi")
 
 [node name="HexManager" type="Node" parent="WorldRoot/Map"]
 script = ExtResource("2_ayagu")
@@ -38,7 +64,6 @@ z_index = -1
 tile_set = SubResource("TileSet_3hyxp")
 format = 2
 layer_0/name = "Terrain"
-layer_0/tile_data = PackedInt32Array(0, 0, 0)
 
 [node name="TerrainGenerator" type="Node" parent="WorldRoot/Map/HexManager"]
 script = ExtResource("2_bv1mf")
@@ -53,6 +78,7 @@ script = ExtResource("4_ct8mt")
 visible = false
 
 [node name="UnitManager" type="Node" parent="WorldRoot/Map"]
+script = ExtResource("8_mc1s3")
 
 [node name="Unit" type="Node2D" parent="WorldRoot/Map/UnitManager"]
 z_index = 1
@@ -69,7 +95,28 @@ offset_bottom = 31.0
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Area2D" type="Area2D" parent="WorldRoot/Map/UnitManager/Unit"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldRoot/Map/UnitManager/Unit/Area2D"]
+shape = SubResource("RectangleShape2D_q6ds8")
+
 [node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="EndTurnButton" type="Button" parent="UI/Control"]
+layout_mode = 0
+offset_left = 1685.0
+offset_top = 985.0
+offset_right = 1763.0
+offset_bottom = 1016.0
+scale = Vector2(3, 3)
+text = "End Turn"
 
 [node name="Utilities" type="Node" parent="."]
 
@@ -79,3 +126,6 @@ script = ExtResource("4_k0p6x")
 [connection signal="noise_ready" from="WorldRoot/Map/HexManager/TerrainGenerator/NoiseGenerator" to="WorldRoot/Map/HexManager/TerrainGenerator/TileMapper" method="_on_noise_generator_noise_ready"]
 [connection signal="signal_sudoku" from="WorldRoot/Map/HexManager/TerrainGenerator/TileMapper" to="WorldRoot/Map/HexManager/TerrainGenerator" method="_on_tile_mapper_signal_sudoku"]
 [connection signal="tile_list_ready" from="WorldRoot/Map/HexManager/TerrainGenerator/TileMapper" to="WorldRoot/Map/HexManager" method="_on_tile_mapper_tile_list_ready"]
+[connection signal="mouse_entered" from="WorldRoot/Map/UnitManager/Unit/Area2D" to="WorldRoot/Map/UnitManager/Unit" method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="WorldRoot/Map/UnitManager/Unit/Area2D" to="WorldRoot/Map/UnitManager/Unit" method="_on_area_2d_mouse_exited"]
+[connection signal="pressed" from="UI/Control/EndTurnButton" to="WorldRoot/Map" method="_on_end_turn_button_pressed"]

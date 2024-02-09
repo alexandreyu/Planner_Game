@@ -4,7 +4,6 @@ extends Node
 @onready var tile_map = $TileMap
 @export var generation_seed = 42
 @export var size = Vector2i(32, 32)
-var hex_size = 128
 # Filling hexes into the hex dictionary
 var hex
 var tile_list = []
@@ -41,3 +40,7 @@ func create_vector2_coordinates(in_size):
 func generate_hex_dict(coords, hexes):
 	for i in range(len(hexes)):
 		hex_dict[coords[i]] = hexes[i]
+
+
+func next_turn():
+	print("Hex Manager updated")

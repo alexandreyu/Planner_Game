@@ -1,5 +1,10 @@
-Node
-Label
+CollisionShape2D
+CollisionShape3D
+Area2D
 Sprite2D
 Node2D
+Control
+Button
+Node
+Label
 TileMap
