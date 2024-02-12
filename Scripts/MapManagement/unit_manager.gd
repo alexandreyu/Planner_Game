@@ -7,5 +7,4 @@ func update_units():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func next_turn():
 	update_units()
-	print(get_children()[0].coords)
 
