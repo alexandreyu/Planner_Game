@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://csnslybbe8mh3"]
+[gd_scene load_steps=15 format=3 uid="uid://csnslybbe8mh3"]
 
 [ext_resource type="Texture2D" uid="uid://cw3qh2fc6koyt" path="res://Assets/Textures/Map/small_moon_hex_grid.png" id="1_a8uhb"]
 [ext_resource type="Script" path="res://Scripts/Cursor/cursor.gd" id="2_7jge4"]
@@ -10,10 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cj1jdl1hgyoqq" path="res://icon.svg" id="3_g3hla"]
 [ext_resource type="Script" path="res://Scripts/TerrainGeneration/tile_mapper.gd" id="4_ct8mt"]
 [ext_resource type="Script" path="res://Scripts/SaverLoader/saver_loader.gd" id="4_k0p6x"]
-[ext_resource type="Script" path="res://Scripts/MapManagement/MapComponents/Units/unit.gd" id="7_dubxg"]
-[ext_resource type="Texture2D" uid="uid://7sr3ty5dtj1p" path="res://Assets/Textures/Units/explorer.png" id="7_ibdh6"]
 [ext_resource type="Script" path="res://Scripts/MapManagement/unit_manager.gd" id="8_mc1s3"]
-[ext_resource type="Texture2D" uid="uid://b7q2m3m0l42un" path="res://Assets/Textures/Units/frame.png" id="13_tf1hc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p5sem"]
 size = Vector2(16, 16)
@@ -29,9 +26,6 @@ texture_region_size = Vector2i(128, 128)
 tile_shape = 3
 tile_size = Vector2i(128, 128)
 sources/0 = SubResource("TileSetAtlasSource_ugcyl")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6ds8"]
-size = Vector2(32, 32)
 
 [node name="Main" type="Node2D"]
 
@@ -81,31 +75,6 @@ visible = false
 [node name="UnitManager" type="Node" parent="WorldRoot/Map"]
 script = ExtResource("8_mc1s3")
 
-[node name="Unit" type="Node2D" parent="WorldRoot/Map/UnitManager"]
-z_index = 1
-script = ExtResource("7_dubxg")
-
-[node name="UnitTexture" type="Sprite2D" parent="WorldRoot/Map/UnitManager/Unit"]
-texture = ExtResource("7_ibdh6")
-
-[node name="Frame" type="Sprite2D" parent="WorldRoot/Map/UnitManager/Unit"]
-visible = false
-z_index = 1
-texture = ExtResource("13_tf1hc")
-
-[node name="Label" type="Label" parent="WorldRoot/Map/UnitManager/Unit"]
-offset_left = -20.0
-offset_top = 8.0
-offset_right = 20.0
-offset_bottom = 31.0
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Area2D" type="Area2D" parent="WorldRoot/Map/UnitManager/Unit"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldRoot/Map/UnitManager/Unit/Area2D"]
-shape = SubResource("RectangleShape2D_q6ds8")
-
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="Control" type="Control" parent="UI"]
@@ -124,6 +93,24 @@ offset_bottom = 1016.0
 scale = Vector2(3, 3)
 text = "End Turn"
 
+[node name="SaveButton" type="Button" parent="UI/Control"]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 985.0
+offset_right = 494.0
+offset_bottom = 1016.0
+scale = Vector2(3, 3)
+text = "Save Game"
+
+[node name="LoadButton" type="Button" parent="UI/Control"]
+layout_mode = 0
+offset_left = 860.0
+offset_top = 985.0
+offset_right = 956.0
+offset_bottom = 1016.0
+scale = Vector2(3, 3)
+text = "Load Game"
+
 [node name="Utilities" type="Node" parent="."]
 
 [node name="SaverLoader" type="Node" parent="Utilities"]
@@ -132,6 +119,4 @@ script = ExtResource("4_k0p6x")
 [connection signal="noise_ready" from="WorldRoot/Map/HexManager/TerrainGenerator/NoiseGenerator" to="WorldRoot/Map/HexManager/TerrainGenerator/TileMapper" method="_on_noise_generator_noise_ready"]
 [connection signal="signal_sudoku" from="WorldRoot/Map/HexManager/TerrainGenerator/TileMapper" to="WorldRoot/Map/HexManager/TerrainGenerator" method="_on_tile_mapper_signal_sudoku"]
 [connection signal="tile_list_ready" from="WorldRoot/Map/HexManager/TerrainGenerator/TileMapper" to="WorldRoot/Map/HexManager" method="_on_tile_mapper_tile_list_ready"]
-[connection signal="mouse_entered" from="WorldRoot/Map/UnitManager/Unit/Area2D" to="WorldRoot/Map/UnitManager/Unit" method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="WorldRoot/Map/UnitManager/Unit/Area2D" to="WorldRoot/Map/UnitManager/Unit" method="_on_area_2d_mouse_exited"]
 [connection signal="pressed" from="UI/Control/EndTurnButton" to="WorldRoot/Map" method="_on_end_turn_button_pressed"]
